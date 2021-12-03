@@ -10,7 +10,21 @@ def main(file: str) -> np.ndarray:
         for line in data_in:
             data_matrix.append([int(digit) for digit in line])
 
-    return np.array(data_matrix)
+    data = np.array(data_matrix)
+
+    # part 1
+    gamma, beta = calc_gamma_beta(data)
+    print(bin2num(gamma) * bin2num(beta))
+
+    # part 2
+    # data = main(("inputs/day_3_test.txt"))
+    o2 = filter_gasses(data, "most")
+    co2 = filter_gasses(data, "least")
+
+    print(bin2num(o2) * bin2num(co2))
+
+    print(f"o2 is {o2}, with number {bin2num(o2)}")
+    print(f"co2 is {co2}, with number {bin2num(co2)}")
 
 
 def calc_gamma_beta(mat: np.ndarray):
@@ -64,19 +78,5 @@ def commonality_filter(
 
 
 if __name__ == "__main__":
-    data = main(("inputs/day_3_1.txt"))
-
-    # part 1
-    gamma, beta = calc_gamma_beta(data)
-    print(bin2num(gamma) * bin2num(beta))
-
-    # part 2
-    # data = main(("inputs/day_3_test.txt"))
-    o2 = filter_gasses(data, "most")
-    co2 = filter_gasses(data, "least")
-
-    print(bin2num(o2) * bin2num(co2))
-
-    print(f"o2 is {o2}, with number {bin2num(o2)}")
-    print(f"co2 is {co2}, with number {bin2num(co2)}")
+    main("inputs/day_3_1.txt")
 
