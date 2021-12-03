@@ -38,7 +38,6 @@ def filter_gasses(data: np.ndarray, commonality: str) -> np.ndarray:
             break
         else:
             gas_idx = commonality_filter(commonality, data[:, i])
-            # data = data[gas_idx, :]
             data = np.take(data, gas_idx, 0)
 
         gas = data.flatten()
@@ -46,8 +45,13 @@ def filter_gasses(data: np.ndarray, commonality: str) -> np.ndarray:
     return gas
 
 
-def commonality_filter(commonality: str, bits: np.ndarray, eps: float = 1e-10):
-    """Take the most or least common bits, and return the indicies to keep"""
+def commonality_filter(
+    commonality: str, bits: np.ndarray, eps: float = 1e-15
+) -> np.ndarray:
+    """
+    Take the most or least common bits, and return the indicies to keep
+    We add eps so that x.5 always rounds up, it's the behaviour we want.
+    """
 
     if commonality == "most":
         most_common = np.round(np.mean(bits) + eps)
