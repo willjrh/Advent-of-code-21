@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def main(file: str) -> np.ndarray:
+def main(file: str):
 
     with open(file) as f:
         data_in = f.read().split()
@@ -21,10 +21,9 @@ def main(file: str) -> np.ndarray:
     o2 = filter_gasses(data, "most")
     co2 = filter_gasses(data, "least")
 
-    print(bin2num(o2) * bin2num(co2))
-
     print(f"o2 is {o2}, with number {bin2num(o2)}")
     print(f"co2 is {co2}, with number {bin2num(co2)}")
+    print(f"Part 2 solution is {bin2num(o2) * bin2num(co2)}")
 
 
 def calc_gamma_beta(mat: np.ndarray):
