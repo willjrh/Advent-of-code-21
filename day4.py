@@ -12,8 +12,10 @@ class BingoCard:
         self.matched_cols: List[int] = []
         self.matched_rows: List[int] = []
         self.matched_coords: List[List[int, int]] = []
-        self.card_status = "loser"
-        self.unmatched_values = np.asarray(self.card, dtype=np.int32).flatten()
+        self.card_status: str = "loser"
+        self.unmatched_values: np.ndarray = np.asarray(
+            self.card, dtype=np.int32
+        ).flatten()
 
     def find_matched_numbers(self, called_number: str):
         for idx, card_num in enumerate(self.card):
@@ -94,8 +96,6 @@ def main(file: str):
                     )
 
                 idx_hold.append(idx)
-
-    print(winning_vals)
 
 
 if __name__ == "__main__":
