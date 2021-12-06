@@ -1,7 +1,6 @@
 import os
 import numpy as np
 
-sample = [3, 4, 3, 1, 2]
 input_file = os.path.join("inputs", "day_6.txt")
 
 with open(input_file) as f:
