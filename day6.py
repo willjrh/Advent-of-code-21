@@ -29,6 +29,6 @@ if __name__ == "__main__":
     n_fish = main(80)
     # part 1
     print(f"Number of fishes: {n_fish}")
-    n_fish = main(256)
     # part 2
+    n_fish = main(256)
     print(f"Number of fishes: {n_fish}")
