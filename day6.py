@@ -18,8 +18,7 @@ def main():
     fish = init_count(data_in)
     incubator = [0, 0, 0]
     for idx in range(256):
-        new_idx = np.mod(idx, 7)
-        n_new_fish = fish[new_idx]
+        n_new_fish = fish[np.mod(idx, 7)]
         incubator.append(n_new_fish)
         fish[np.mod(idx - 1, 7)] = fish[np.mod(idx - 1, 7)] + incubator.pop(0)
 
