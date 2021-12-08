@@ -30,5 +30,11 @@ if __name__ == "__main__":
     # part 1
     print(f"Number of fishes: {n_fish}")
     # part 2
+    import timeit
+
+    start = timeit.default_timer()
     n_fish = main(256)
     print(f"Number of fishes: {n_fish}")
+    stop = timeit.default_timer()
+    print("Time: ", stop - start)
+

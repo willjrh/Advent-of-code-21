@@ -62,7 +62,6 @@ def read_bingo_cards(file: str) -> List[BingoCard]:
 
     # init bingo card list
     bingo_cards: List[BingoCard] = []
-
     card: List[List[int]] = []
     # loop over input and get cards
     for line in data_in[2:]:
